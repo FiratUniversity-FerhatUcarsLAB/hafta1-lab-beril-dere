@@ -1,4 +1,31 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No: 250541118
+AD-SOYAD: Berfin Beril Dere
+Konu: En kısa sürede üniversiteye gitme algoritması 
 
-Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+BAŞLA
+otobus_varis_suresi ← KullanıcıdanAl("5 numaralı otobüs kaç dakika sonra geliyor?")
+taksi_bulundu ← TaksiUygulamasindanDurumAl()
+yurume_suresi ← 15
+
+EĞER taksi_bulundu = true İSE
+  taksi_varis_suresi ← KullanıcıdanAl("Taksi tahmini kaç dakikada gelir?")
+  taksi_yol_suresi ← KullanıcıdanAl("Taksiyle kaç dakikada üniversiteye varılır?")
+  toplam_taksi_suresi ← taksi_varis_suresi + taksi_yol_suresi 
+DEĞİLSE
+  toplam_taksi_suresi ← sonsuz
+EĞER 
+  otobus_varis_suresi ≠ null VEYA otobus_varis_suresi < sonsuz İSE 
+  otobus_yol_suresi ← KullanicidanAl("Otobüsle kaç dakikada üniversiteye varılır?")
+  toplam_otobus_suresi ← otobus_varis_suresi + otobus_yol_suresi
+DEĞİLSE
+  toplam_otobus_suresi ← sonsuz
+EN_KISA_SURE ← Min(toplam_taksi_suresi, toplam_otobus_suresi, yurume_suresi)
+EĞER EN_KISA_SURE = toplam_taksi_suresi İSE
+  Yazdır("Taksiyle gitmek en hızlı seçenek.")
+DEĞİLSE EĞER EN_KISA_SURE = toplam_otobus_suresi İSE
+  Yazdır("5 numaralı otobüsle gitmek en hızlı seçenek.")
+DEĞİLSE
+  Yazdır("Yürüyerek gitmek en hızlı seçenek.")
+SON
+
+BİTİR
