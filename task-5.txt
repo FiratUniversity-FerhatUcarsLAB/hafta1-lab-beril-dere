@@ -1,4 +1,67 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No: 250541118
+AD-SOYAD: Berfin Beril Dere
+Konu: Kendimi Geliştirmek İçin Haftalık Planlama Algoritması 
 
-Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+Girdi:
+  TOPLAM_ZAMAN = 35
+  FRANSIZCA_ZAMAN= 6
+  ALMANCA_ZAMAN = 6
+  KODLAMA_ZAMAN = 9
+  TT_ZAMAN = 3
+  DİNLENME_ZAMAN = 10
+Başla:
+    Haftalik_Plan ← Boş Liste
+Eğer (FRANSIZCA_ZAMAN + ALMANCA_ZAMAN + KODLAMA_ZAMAN + TT_ZAMAN + DİNLENME_ZAMAN) > TOPLAM_ZAMAN ise
+  Fark ← (FRANSIZCA_ZAMAN + ALMANCA_ZAMAN + KODLAMA_ZAMAN + TT_ZAMAN + DİNLENME_ZAMAN) - TOPLAM_ZAMAN
+  Dinlenme_ZAMAN ← Dinlenme_ZAMAN - Fark
+Son
+
+Günler ← [Pazartesi, Salı, Çarşamba, Perşembe, Cuma, Cumartesi, Pazar]
+Öncelik ← [KODLAMA, FRANSIZCA, ALMANCA, TT]
+Her Bir Gün İçinde Günler:
+  Günlük_ZAMAN ← toplam_ZAMAN / 7
+  Gün_Planı ← Boş Liste
+// böl ve fethet yaklaşımı
+Beceriler ← Böl(Öncelik, 4)
+
+Her bir Beceri içinde Beceriler:
+  Beceri_Zaman ← BeceriyeAyrilacakZaman(Beceri)
+  Eğer Beceri = "KODLAMA" ise
+    Kodlama_Günlük = KODLAMA_ZAMAN / 7
+    Ekle(Gün_Planı, ("Kodlama", Kodlama_Günlük))
+  Eğer Beceri = "FRANSIZCA" ise 
+    Fransızca_Günlük ← FRANSIZCA_ZAMAN / 7
+    Ekle(Gün_Planı, ("Fransızca", Fransızca_Günlük))
+  Eğer Beceri = "ALMANCA" ise 
+    Almanca_Günlük = ALMANCA_ZAMAN / 7
+    Ekle(Gün_Planı, ("Almanca", Almanca_Günlük))
+  Eğer Beceri = "TT" ise
+    Eğer (Haftalık_TT_İçeriği < 2) ise
+      Tt_Zaman = TT_ZAMAN / 2
+      Ekle(Gün_Planı, ("tt", TT_ZAMAN))
+    Aksi halde
+      Atla
+  Son
+ Son
+    Ekle(Haftalık_Plan, Gün_Planı)
+ Son
+
+ Eğer Motivasyon < %50 ise 
+  dinlenme_ZAMAN ← dinlenme_ZAMAN + 2
+  kodlama_ZAMAN ← kodlama_ZAMAN - 1
+ Son
+
+ Eğer TT_İlham_Yoksa ise 
+  TT_ZAMAN ← TT_ZAMAN / 2 
+  Fransızca_ZAMAN ← Fransızca_ZAMAN + 1
+ Son
+
+  Eğer Fransızca veya Almanca günleri çakışırsa
+    Her dilden biri ertesi güne kaydırılır 
+  Son
+  Yazdır("Haftalık plan hazır.")
+  Yazdır(Haftalik_Plan)
+Bitir
+Son Algoritma 
+
+
