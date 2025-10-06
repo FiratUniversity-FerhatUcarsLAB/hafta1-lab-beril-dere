@@ -1,4 +1,41 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No: 250541118
+AD-SOYAD: Berfin Beril Dere
+Konu: Müzik Koleksiyonu Düzenleme Algoritması 
 
-Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+BAŞLA
+koleksiyon ← BoşListe()
+ing_sanatcilar ← ["Rihanna", "Justin Bieber", "Drake", "Bryson Tiller", "SZA", "The Weeknd", "Ariana Grande", "Sabrina Carpenter"]
+fr_sanatcilar ← ["Angele", "Dadju", "Jul"]
+ruh_halleri ← ["chill", "party", "sad", "motivational", "romantic"]
+
+FONKSİYON SarkiEkle(sarki_adi, sanatci, ruh_hali)
+  EĞER sanatci ∈ ing_sanatcilar İSE
+    dil ← "ingilizce"
+  DEĞİLSE EĞER sanatci ∈ fr_sanatcilar İSE 
+    dil ← "fransızca"
+  DEĞİLSE
+    dil ← "bilinmiyor"
+
+ EĞER ruh_hali ∈ ruh_halleri DEĞİLSE
+  ruh_hali ← "Genel"
+
+  kategori ← dil + " / " + ruh_hali
+  EĞER kategori KoleksiyondaYoksa(koleksiyon) İSE
+    koleksiyon[kategori] ← BoşListe()
+
+  koleksiyon[kategori].Ekle((sarki_adi, sanatci))
+  Yazdır(sarki_adi + " şarkısı " + kategori + " klasörüne eklendi.")
+SON FONKSİYON
+FONKSİYON KoleksiyonuListele()
+  HER kategori İÇİN koleksiyon
+    Yazdır("Kategori: " + kategori)
+    HER şarkı İÇİN koleksiyon[kategori]
+      Yazdır(" - " + şarkı.sanatci + " - " + şarkı.sarki_adi)
+SON FONKSİYON
+SarkiEkle("Work", "Rihanna", "Party")
+SarkiEkle("Peaches, "Justin Bieber", "Chill")
+SarkiEkle("Earned It", "The Weeknd", "romantic")
+SarkiEkle("Djadja", "Angele", "chill")
+SarkiEkle("Complique", "Dadju", "romantic")
+KoleksiyonuListele()
+BİTİR
