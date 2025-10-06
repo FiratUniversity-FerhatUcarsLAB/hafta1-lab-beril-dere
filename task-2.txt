@@ -1,4 +1,28 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No: 250541118
+AD-SOYAD: Berfin Beril Dere 
+Konu: Tic-Tac-Toe'da kazanma stratejisi
 
-Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+BAŞLA
+//tahta 3x3 matris, X bizim, O rakip
+HER bir satır, sütun ve çapraz için:
+  EĞER aynı satır/sütunda 2 X varsa VE 1 boşluk varsa
+  O boşluğa X koy
+  OYUNU BİTİR
+
+HER bir satır, sütun ve çapraz için:
+  EĞER aynı satır/sütunda 2 O varsa VE 1 boşluk varsa
+  O boşluğa X koy (rakibi engelle)
+  OYUNU BİTİR
+
+EĞER merkez boşsa
+  merkeze X koy
+  OYUNU BİTİR
+
+EĞER köşe boşsa
+  köşelerden birine X koy
+  OYUNU BİTİR
+
+Aksi halde
+  herhangi bir boş yere X koy
+
+BİTİR
