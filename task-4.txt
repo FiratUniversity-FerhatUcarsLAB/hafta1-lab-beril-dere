@@ -1,4 +1,52 @@
-Öğrenci No:
-AD-SOYAD:
+Öğrenci No: 250541118
+AD-SOYAD: Berfin Beril Dere
+Konu: Renkleri karıştırarak hedef rengi elde etme 
 
-Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+BAŞLA
+TEMEL_RENKLER ← ["kırmızı, "mavi", "sarı"]
+KURALLAR ← {
+  "Turuncu": ["kırmızı, "sarı"],
+  "Yeşil": ["mavi", "sarı"],
+  "Mor": ["kırmızı", "mavi"],
+  "Kahverengi": ["kırmızı", "yeşil"],
+  "Açık Kahverengi": ["Kahverengi", "Beyaz"]
+}
+FONKSİYON RenkEldeEt(hedef_renk)
+  EĞER hedef_renk ∈ TEMEL_RENKLER İSE 
+    DÖNDÜR [hedef_renk]
+
+    EĞER hedef_renk ∈ KURALLAR İSE 
+      alt_renkler ← KURALLAR[hedef_renk]
+      sonuc_renkler ← []
+
+      HER alt_renk İÇİN alt_renkler 
+        alt_sonuc ← RenkEldeEt(alt_renk)
+        sonuc_renkler ← sonuc_renkler + alt_sonuc
+      DÖNDÜR sonuc_renkler
+
+    YAZDIR(hedef_renk + " rengi mevcut karışımlarla elde edilemez.")
+    DÖNDÜR []
+SON FONKSİYON 
+FONKSİYON RenkKontrol(renk)
+  EĞER renk = "Siyah" VEYA renk = "Beyaz" VEYA renk = "Gri" İSE 
+    YAZDIR("Bu renk pigment karışımıyla elde edilemez (ışık karışımı gerekir).")
+    DÖNDÜR false
+  DEĞİLSE 
+    DÖNDÜR true
+SON FONKSİYON 
+
+hedef ← KullanıcıdanAl("Hedef rengi giriniz.")
+
+EĞER RenkKontrol(hedef) = true İSE
+  sonuc ← RenkEldeEt(hedef)
+  EĞER sonuc ≠ [] İSE 
+    Yazdır("Hedef renk için gereken temel renkler: " + sonuc)
+  DEĞİLSE
+    Yazdır("Hedef renk oluşturulamadı.")
+DEĞİLSE
+  Yazdır("İşlem iptal edildi.")
+BİTİR
+
+
+    
+
